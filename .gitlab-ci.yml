@@ -94,6 +94,7 @@ build:
             docker manifest push ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE}:test
 
 container_scanning:
+    before_script: []
     tags:
         - dind64
     variables:
