@@ -4,11 +4,11 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 [![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.17.2-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.17.3-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
 This Docker image [(maurosoft1973/alpine)](https://hub.docker.com/r/maurosoft1973/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
 
-##### Alpine Version 3.17.2 (Released Feb 10 2023)
+##### Alpine Version 3.17.3 (Released Mar 29 2023)
 
 This docker image is the base Alpine Linux. For more info on versions & support see [Releases](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
 
@@ -49,13 +49,13 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 * ```:test-ppc64le```   test 64 bit PowerPC
 * ```:test-x86```       test 32 bit Intel/AMD
 * ```:test-x86_64```    test 64 bit Intel/AMD
-* ```:3.17.2``` 3.17.2 branch based (Automatic Architecture Selection)
-* ```:3.17.2-aarch64```   3.17.2 64 bit ARM
-* ```:3.17.2-armhf```     3.17.2 32 bit ARM v6
-* ```:3.17.2-armv7```     3.17.2 32 bit ARM v7
-* ```:3.17.2-ppc64le```   3.17.2 64 bit PowerPC
-* ```:3.17.2-x86```       3.17.2 32 bit Intel/AMD
-* ```:3.17.2-x86_64```    3.17.2 64 bit Intel/AMD
+* ```:3.17.3``` 3.17.3 branch based (Automatic Architecture Selection)
+* ```:3.17.3-aarch64```   3.17.3 64 bit ARM
+* ```:3.17.3-armhf```     3.17.3 32 bit ARM v6
+* ```:3.17.3-armv7```     3.17.3 32 bit ARM v7
+* ```:3.17.3-ppc64le```   3.17.3 64 bit PowerPC
+* ```:3.17.3-x86```       3.17.3 32 bit Intel/AMD
+* ```:3.17.3-x86_64```    3.17.3 64 bit Intel/AMD
 
 
 ## Layers & Sizes
@@ -119,4 +119,4 @@ docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome 
 ```
 
 ***
-###### Last Update 15.02.2023 05:15:23
+###### Last Update 25.04.2023 15:03:20
