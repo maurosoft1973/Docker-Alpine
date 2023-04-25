@@ -2,4 +2,6 @@
 
 source /scripts/init-alpine.sh
 
-/bin/sh
+SHELL_TERMINAL=${SHELL_TERMINAL:-"/bin/sh"}
+
+$SHELL_TERMINAL

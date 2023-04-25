@@ -154,7 +154,7 @@ deploy:
             docker manifest push ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}
         - |
             echo "Push Manifest Latest -> ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}"
-            docker manifest create ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_HUB_IMAGE} \
+            docker manifest create ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE} \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:aarch64 \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:armhf \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:armv7 \
@@ -167,7 +167,7 @@ deploy:
 readme:
     stage: readme
     image: docker:23.0.4
-    needs: ["container_scanning","deploy"]
+    needs: ["deploy"]
     variables:
         DOCKERHUB_REPO_PREFIX: "maurosoft1973"
         DOCKERHUB_REPO_NAME: "alpine"
@@ -199,8 +199,9 @@ readme:
 
 clean:
     stage: clean
+    needs: ["deploy"]
     tags:
-        - dindarm
+        - dind64
     only:
         - master
     script:

@@ -53,7 +53,7 @@ ADD alpine-$ALPINE_VERSION/$ALPINE_ARCHITECTURE/alpine-minirootfs-$ALPINE_VERSIO
 
 ENV MUSL_LOCPATH="/usr/share/i18n/locales/musl"
 
-RUN apk add libintl tzdata
+RUN apk add libintl tzdata bash
 
 COPY --from=0 /etc/profile.d/00locale.sh /etc/profile.d/00locale.sh
 
