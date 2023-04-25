@@ -143,7 +143,7 @@ deploy:
             done < "./.arch"
         - |
             echo "Push Manifest Current -> ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}"
-            docker manifest create ${DOCKER_HUB_GROUP}/${DOCKER_IMAGE}:${JOB_ALPINE_VERSION} \
+            docker manifest create ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION} \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}-aarch64 \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}-armhf \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}-armv7 \
@@ -154,7 +154,7 @@ deploy:
             docker manifest push ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:${JOB_ALPINE_VERSION}
         - |
             echo "Push Manifest Latest -> ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}"
-            docker manifest create ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_IMAGE} \
+            docker manifest create ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_HUB_IMAGE} \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:aarch64 \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:armhf \
                 --amend ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE}:armv7 \
