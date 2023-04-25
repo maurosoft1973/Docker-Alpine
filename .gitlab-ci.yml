@@ -45,6 +45,7 @@ before_script:
 
 build:
     stage: build
+    image: docker:23.0.4
     tags:
         - dind64
     script:
@@ -100,6 +101,7 @@ container_scanning:
 
 deploy:
     stage: deploy
+    image: docker:23.0.4
     needs: ["build"]
     tags:
         - dind64
@@ -163,6 +165,7 @@ deploy:
 
 readme:
     stage: readme
+    image: docker:23.0.4
     needs: ["container_scanning","deploy"]
     variables:
         DOCKERHUB_REPO_PREFIX: "maurosoft1973"
