@@ -46,7 +46,7 @@ before_script:
 build:
     stage: build
     tags:
-        - dindarm
+        - dind64
     script:
         - BUILD_DATE=$(date +"%Y-%m-%d")
         - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
@@ -93,6 +93,8 @@ build:
             docker manifest push ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE}:test
 
 container_scanning:
+    tags:
+        - dind64
     variables:
         CS_IMAGE: ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE}:test
 
@@ -100,7 +102,7 @@ deploy:
     stage: deploy
     needs: ["build"]
     tags:
-        - dindarm
+        - dind64
     script:
         - BUILD_DATE=$(date +"%Y-%m-%d")
         - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
