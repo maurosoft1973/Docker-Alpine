@@ -1,6 +1,12 @@
 # Alpine Linux in Docker with Multilanguage e Timezone support
 
-This Docker image [(gitlab.welcomeitalia.it:5050/docker-images/alpine)](https://gitlab.welcomeitalia.it:5050/docker-images/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
+[![Docker Automated build](https://img.shields.io/docker/automated/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
+[![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
+
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v%ALPINE_VERSION%-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+
+This Docker image [(maurosoft1973/alpine)](https://hub.docker.com/r/maurosoft1973/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
 
 ##### Alpine Version %ALPINE_VERSION% (Released %ALPINE_VERSION_DATE%)
 
@@ -51,6 +57,17 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 * ```:%ALPINE_VERSION%-x86```       %ALPINE_VERSION% 32 bit Intel/AMD
 * ```:%ALPINE_VERSION%-x86_64```    %ALPINE_VERSION% 64 bit Intel/AMD
 
+
+## Layers & Sizes
+| Version                                                                               | Size                                                                                                                 |
+|---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| ![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/latest?style=for-the-badge)  |
+| ![Version](https://img.shields.io/badge/version-armv6-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/armhf?style=for-the-badge)   |
+| ![Version](https://img.shields.io/badge/version-armv7-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/armv7?style=for-the-badge)   |
+| ![Version](https://img.shields.io/badge/version-ppc64le-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/ppc64le?style=for-the-badge) |
+| ![Version](https://img.shields.io/badge/version-x86-blue.svg?style=for-the-badge)     | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/x86?style=for-the-badge)     |
+
+
 ## Environment Variables:
 
 ### Main parameters:
@@ -87,25 +104,19 @@ When setting locale, also make sure to choose a locale otherwise it will be the 
 ## Creating an instance (default timezone and locale)
 
 ```bash
-docker run --rm -it --name alpine gitlab.welcomeitalia.it:5050/docker-images/alpine
+docker run --rm -it --name alpine maurosoft1973/alpine
 ```
 
 ## Creating an instance with locale it_IT
 
 ```bash
-docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 gitlab.welcomeitalia.it:5050/docker-images/alpine
+docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 maurosoft1973/alpine
 ```
 
 ## Creating an instance with locale it_IT and timezone Europe/Rome
 
 ```bash
-docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome gitlab.welcomeitalia.it:5050/docker-images/alpine
-```
-
-## Creating an instance with locale it_IT, timezone Europe/Rome and shell bash
-
-```bash
-docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome -e SHELL_TERMINAL=bin/bash gitlab.welcomeitalia.it:5050/docker-images/alpine
+docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome maurosoft1973/alpine
 ```
 
 ***
