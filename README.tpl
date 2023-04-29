@@ -3,7 +3,6 @@
 [![Docker Automated build](https://img.shields.io/docker/automated/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 [![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
-
 [![Alpine Version](https://img.shields.io/badge/Alpine%20version-v%ALPINE_VERSION%-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
 This Docker image [(maurosoft1973/alpine)](https://hub.docker.com/r/maurosoft1973/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
@@ -100,22 +99,23 @@ When setting locale, also make sure to choose a locale otherwise it will be the 
 | sv_SE.UTF-8     |
 +-----------------+
 ```
+## Example of use
 
-## Creating an instance (default timezone and locale)
+### 1.Creating an instance (default timezone and locale)
 
-```bash
+```console
 docker run --rm -it --name alpine maurosoft1973/alpine
 ```
 
-## Creating an instance with locale it_IT
+### 2.Creating an instance with locale it_IT
 
-```bash
+```console
 docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 maurosoft1973/alpine
 ```
 
-## Creating an instance with locale it_IT and timezone Europe/Rome
+### 3.Creating an instance with locale it_IT and timezone Europe/Rome
 
-```bash
+```console
 docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome maurosoft1973/alpine
 ```
 

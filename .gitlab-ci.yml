@@ -94,6 +94,7 @@ build:
             docker manifest push ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE}:test
 
 container_scanning:
+    needs: ["build"]
     before_script: []
     tags:
         - dind64
@@ -205,4 +206,6 @@ clean:
     only:
         - master
     script:
-        - docker rmi -f ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_IMAGE} > /dev/null 2>&1
+        - |
+          docker images ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_IMAGE} -q | xargs --no-run-if-empty docker rmi -f
+          docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
