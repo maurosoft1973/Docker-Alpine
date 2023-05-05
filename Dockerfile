@@ -10,14 +10,13 @@ ARG ALPINE_VERSION_DATE
 
 ADD alpine-$ALPINE_VERSION/$ALPINE_ARCHITECTURE/alpine-minirootfs-$ALPINE_VERSION-$ALPINE_ARCHITECTURE.tar.gz /
 
-RUN apk add cmake make musl-dev gcc gettext-dev libintl
+RUN apk --no-cache add cmake make musl-dev gcc gettext-dev libintl
 
 WORKDIR /tmp
 
 ADD musl-locales/ /tmp
 
-RUN ls -la && \
-    mkdir build && \
+RUN mkdir build && \
     cd build && \ 
     cmake .. -DCMAKE_INSTALL_PREFIX=/usr && \
     make && \
@@ -41,7 +40,7 @@ LABEL \
     alpine-version="$ALPINE_VERSION" \
     build="$BUILD_DATE" \
     org.opencontainers.image.title="alpine" \
-    org.opencontainers.image.description="Docker image running on Alpine Linux" \
+    org.opencontainers.image.description="Alpine Linux Docker Image with Multilanguage e Timezone support" \
     org.opencontainers.image.authors="Mauro Cardillo <mauro.cardillo@gmail.com>" \
     org.opencontainers.image.vendor="Mauro Cardillo" \
     org.opencontainers.image.version="v$ALPINE_VERSION" \
@@ -53,7 +52,7 @@ ADD alpine-$ALPINE_VERSION/$ALPINE_ARCHITECTURE/alpine-minirootfs-$ALPINE_VERSIO
 
 ENV MUSL_LOCPATH="/usr/share/i18n/locales/musl"
 
-RUN apk add libintl tzdata bash
+RUN apk --no-cache add libintl tzdata bash
 
 COPY --from=0 /etc/profile.d/00locale.sh /etc/profile.d/00locale.sh
 

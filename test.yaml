@@ -1,0 +1,23 @@
+schemaVersion: 2.0.0
+
+fileExistenceTests:  
+  - name: 'init-alpine.sh exists and has correct permissions'
+    path: '/scripts/init-alpine.sh'
+    shouldExist: true
+    permissions: '-rwxr-xr-x'
+    uid: 0    
+    gid: 0
+  - name: 'run-alpine.sh exists and has correct permissions'
+    path: '/scripts/run-alpine.sh'
+    shouldExist: true
+    permissions: '-rwxr-xr-x'
+    uid: 0    
+    gid: 0
+
+fileContentTests:
+  - name: 'Alpine Version Testing'
+    path: '/etc/os-release'
+    expectedContents: ['.*VERSION_ID=3.17.3.*']
+
+metadataTest:
+    entrypoint: ['/scripts/run-alpine.sh']

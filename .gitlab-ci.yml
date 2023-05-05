@@ -9,6 +9,7 @@ variables:
     DOCKER_TLS_CERTDIR: ""
     DOCKER_CLI_EXPERIMENTAL: enabled
     DOCKER_DRIVER: overlay2
+    DOCKER_IMAGE_TEST: registry.gitlab.com/maurosoft1973-docker/alpine:test
 
 services:
     - name: docker:23.0.4-dind
@@ -93,18 +94,42 @@ build:
                 
             docker manifest push ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE}:test
 
+container_test:
+    stage: test
+    image: docker:23.0.4
+    needs: ["build"]
+    tags:
+        - dind64
+    script:
+        - |
+          docker pull $DOCKER_IMAGE_TEST
+        - apk add --no-cache curl
+        - |
+          curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+          chmod +x container-structure-test-linux-amd64
+          mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
+        - |
+          container-structure-test -c test.yaml --image $DOCKER_IMAGE_TEST --test-report junit-test-result.xml --output junit test
+    artifacts:
+        when: always
+        paths:
+            - $CI_PROJECT_DIR/junit-test-result.xml
+        reports:
+            junit:
+                - $CI_PROJECT_DIR/junit-test-result.xml
+
 container_scanning:
     needs: ["build"]
     before_script: []
     tags:
         - dind64
     variables:
-        CS_IMAGE: registry.gitlab.com/maurosoft1973-docker/alpine:test
+        CS_IMAGE: $DOCKER_IMAGE_TEST
 
 deploy:
     stage: deploy
     image: docker:23.0.4
-    needs: ["build"]
+    needs: ["build","container_test"]
     tags:
         - dind64
     script:
@@ -201,6 +226,7 @@ readme:
 clean:
     stage: clean
     needs: ["deploy"]
+    allow_failure: true
     tags:
         - dind64
     only:
