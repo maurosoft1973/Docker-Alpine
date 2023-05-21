@@ -58,6 +58,7 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 
 
 ## Layers & Sizes
+
 | Version                                                                               | Size                                                                                                                 |
 |---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | ![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/latest?style=for-the-badge)  |
