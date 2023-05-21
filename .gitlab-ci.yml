@@ -213,7 +213,6 @@ deploy:
 readme:
     stage: readme
     image: docker:23.0.4
-    needs: ["deploy"]
     rules:
       - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
         changes:
