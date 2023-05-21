@@ -101,6 +101,7 @@ When setting locale, also make sure to choose a locale otherwise it will be the 
 | sv_SE.UTF-8     |
 +-----------------+
 ```
+
 ## Example of use
 
 ### 1.Creating an instance (default timezone and locale)
