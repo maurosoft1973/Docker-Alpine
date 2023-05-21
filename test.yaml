@@ -17,7 +17,7 @@ fileExistenceTests:
 fileContentTests:
   - name: 'Alpine Version Testing'
     path: '/etc/os-release'
-    expectedContents: ['.*VERSION_ID=3.17.3.*']
+    expectedContents: ['.*VERSION_ID=3.18.0.*']
 
 metadataTest:
     entrypoint: ['/scripts/run-alpine.sh']
