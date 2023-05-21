@@ -249,8 +249,6 @@ clean:
     allow_failure: true
     tags:
         - dind64
-    only:
-        - master
     script:
         - |
             docker images ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE} -q | xargs --no-run-if-empty docker rmi -f
