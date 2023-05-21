@@ -26,6 +26,13 @@ stages:
     - readme
     - clean
 
+workflow:
+    rules:
+    - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+      changes:
+        - README.tpl
+      when: never
+
 before_script:
     - apk add --no-cache git bash curl file
     - /bin/bash
