@@ -201,7 +201,11 @@ readme:
     stage: readme
     image: docker:23.0.4
     needs: ["deploy"]
-    rules: []
+    rules:
+      - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+        changes:
+        - README.tpl
+        when: always
     variables:
         DOCKERHUB_REPO_PREFIX: "maurosoft1973"
         DOCKERHUB_REPO_NAME: "alpine"
