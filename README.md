@@ -3,11 +3,11 @@
 [![Docker Automated build](https://img.shields.io/docker/automated/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
 [![Docker Stars](https://img.shields.io/docker/stars/maurosoft1973/alpine.svg?style=for-the-badge&logo=docker)](https://hub.docker.com/r/maurosoft1973/alpine/)
-[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.17.3-green.svg?style=for-the-badge)](https://alpinelinux.org/)
+[![Alpine Version](https://img.shields.io/badge/Alpine%20version-v3.18.0-green.svg?style=for-the-badge)](https://alpinelinux.org/)
 
 This Docker image [(maurosoft1973/alpine)](https://hub.docker.com/r/maurosoft1973/alpine/) is based on the minimal [Alpine Linux](https://alpinelinux.org/).
 
-##### Alpine Version 3.17.3 (Released Mar 29 2023)
+##### Alpine Version 3.18.0 (Released May 09 2023)
 
 This docker image is the base Alpine Linux. For more info on versions & support see [Releases](https://wiki.alpinelinux.org/wiki/Alpine_Linux:Releases)
 
@@ -48,13 +48,13 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 * ```:test-ppc64le```   test 64 bit PowerPC
 * ```:test-x86```       test 32 bit Intel/AMD
 * ```:test-x86_64```    test 64 bit Intel/AMD
-* ```:3.17.3``` 3.17.3 branch based (Automatic Architecture Selection)
-* ```:3.17.3-aarch64```   3.17.3 64 bit ARM
-* ```:3.17.3-armhf```     3.17.3 32 bit ARM v6
-* ```:3.17.3-armv7```     3.17.3 32 bit ARM v7
-* ```:3.17.3-ppc64le```   3.17.3 64 bit PowerPC
-* ```:3.17.3-x86```       3.17.3 32 bit Intel/AMD
-* ```:3.17.3-x86_64```    3.17.3 64 bit Intel/AMD
+* ```:3.18.0``` 3.18.0 branch based (Automatic Architecture Selection)
+* ```:3.18.0-aarch64```   3.18.0 64 bit ARM
+* ```:3.18.0-armhf```     3.18.0 32 bit ARM v6
+* ```:3.18.0-armv7```     3.18.0 32 bit ARM v7
+* ```:3.18.0-ppc64le```   3.18.0 64 bit PowerPC
+* ```:3.18.0-x86```       3.18.0 32 bit Intel/AMD
+* ```:3.18.0-x86_64```    3.18.0 64 bit Intel/AMD
 
 
 ## Layers & Sizes
@@ -120,4 +120,4 @@ docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome 
 ```
 
 ***
-###### Last Update 05.05.2023 21:03:17
+###### Last Update 21.05.2023 14:52:16
