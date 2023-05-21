@@ -40,9 +40,9 @@ before_script:
     - source ./${ENV_ALPINE_VERSION};
     - set +a;
     - |
-      export JOB_ALPINE_VERSION=${CI_ALPINE_VERSION:-"$ALPINE_VERSION"}
-      export JOB_ALPINE_VERSION_DATE=${CI_ALPINE_VERSION_DATE:-"$ALPINE_VERSION_DATE"}
-      export JOB_ALPINE_RELEASE=${CI_ALPINE_RELEASE:-"$ALPINE_RELEASE"}
+        export JOB_ALPINE_VERSION=${CI_ALPINE_VERSION:-"$ALPINE_VERSION"}
+        export JOB_ALPINE_VERSION_DATE=${CI_ALPINE_VERSION_DATE:-"$ALPINE_VERSION_DATE"}
+        export JOB_ALPINE_RELEASE=${CI_ALPINE_RELEASE:-"$ALPINE_RELEASE"}
 
 build:
     stage: build
@@ -102,14 +102,14 @@ container_test:
         - dind64
     script:
         - |
-          docker pull $DOCKER_IMAGE_TEST
+            docker pull $DOCKER_IMAGE_TEST
         - apk add --no-cache curl
         - |
-          curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
-          chmod +x container-structure-test-linux-amd64
-          mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
+            curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+            chmod +x container-structure-test-linux-amd64
+            mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
         - |
-          container-structure-test -c test.yaml --image $DOCKER_IMAGE_TEST --test-report junit-test-result.xml --output junit test
+            container-structure-test -c test.yaml --image $DOCKER_IMAGE_TEST --test-report junit-test-result.xml --output junit test
     artifacts:
         when: always
         paths:
@@ -203,25 +203,25 @@ readme:
     script:
         - export LAST_UPDATE=$(date +"%d.%m.%Y %H:%M:%S")
         - |
-          git config --global user.email "mauro.cardillo@gmail.com"
-          git config --global user.name "Mauro Cardillo"
-          git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/$CI_PROJECT_PATH.git /tmp/repository
+            git config --global user.email "mauro.cardillo@gmail.com"
+            git config --global user.name "Mauro Cardillo"
+            git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/$CI_PROJECT_PATH.git /tmp/repository
         - cd /tmp/repository
         - echo "Generate README for Alpine Version ${ALPINE_VERSION}"
         - |
-          sed "s/\%ALPINE_RELEASE\%/${JOB_ALPINE_RELEASE}/g" README.tpl > README_COMPILE.md1
-          sed "s/\%ALPINE_VERSION\%/${JOB_ALPINE_VERSION}/g" README_COMPILE.md1 > README_COMPILE.md2
-          sed "s/\%ALPINE_VERSION_DATE\%/${JOB_ALPINE_VERSION_DATE}/g" README_COMPILE.md2 > README_COMPILE.md3
-          sed "s/\%LAST_UPDATE\%/${LAST_UPDATE}/g" README_COMPILE.md3 > README.md
-          rm -rf README_COMPILE.*
+            sed "s/\%ALPINE_RELEASE\%/${JOB_ALPINE_RELEASE}/g" README.tpl > README_COMPILE.md1
+            sed "s/\%ALPINE_VERSION\%/${JOB_ALPINE_VERSION}/g" README_COMPILE.md1 > README_COMPILE.md2
+            sed "s/\%ALPINE_VERSION_DATE\%/${JOB_ALPINE_VERSION_DATE}/g" README_COMPILE.md2 > README_COMPILE.md3
+            sed "s/\%LAST_UPDATE\%/${LAST_UPDATE}/g" README_COMPILE.md3 > README.md
+            rm -rf README_COMPILE.*
         - |
-          git add .
-          git commit -m "Update README for Alpine Version ${ALPINE_VERSION}"
-          git push --push-option="ci.skip" https://gitlab-ci-token:${GITLAB_TOKEN}@${CI_SERVER_HOST}/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_BRANCH
+            git add .
+            git commit -m "Update README for Alpine Version ${ALPINE_VERSION}"
+            git push --push-option="ci.skip" https://gitlab-ci-token:${GITLAB_TOKEN}@${CI_SERVER_HOST}/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_BRANCH
         - |
-          FULL_DESCRIPTION=$(if [ -f "$(pwd)/README.md" ]; then cat "$(pwd)/README.md"; else echo ""; fi)
-          docker pull maurosoft1973/alpine-readme-to-dockerhub
-          docker run --rm -e DOCKERHUB_USERNAME="$DOCKER_HUB_USERNAME" -e DOCKERHUB_PASSWORD="$DOCKER_HUB_PASSWORD" -e DOCKERHUB_REPO_PREFIX="$DOCKERHUB_REPO_PREFIX" -e DOCKERHUB_REPO_NAME="$DOCKERHUB_REPO_NAME" -e SHORT_DESCRIPTION="$DOCKERHUB_SHORT_DESCRIPTION" -e FULL_DESCRIPTION="$FULL_DESCRIPTION" maurosoft1973/alpine-readme-to-dockerhub
+            FULL_DESCRIPTION=$(if [ -f "$(pwd)/README.md" ]; then cat "$(pwd)/README.md"; else echo ""; fi)
+            docker pull maurosoft1973/alpine-readme-to-dockerhub
+            docker run --rm -e DOCKERHUB_USERNAME="$DOCKER_HUB_USERNAME" -e DOCKERHUB_PASSWORD="$DOCKER_HUB_PASSWORD" -e DOCKERHUB_REPO_PREFIX="$DOCKERHUB_REPO_PREFIX" -e DOCKERHUB_REPO_NAME="$DOCKERHUB_REPO_NAME" -e SHORT_DESCRIPTION="$DOCKERHUB_SHORT_DESCRIPTION" -e FULL_DESCRIPTION="$FULL_DESCRIPTION" maurosoft1973/alpine-readme-to-dockerhub
 
 clean:
     stage: clean
@@ -233,5 +233,6 @@ clean:
         - master
     script:
         - |
-          docker images ${DOCKER_HUB_URL}/${DOCKER_HUB_PREFIX}/${DOCKER_IMAGE} -q | xargs --no-run-if-empty docker rmi -f
-          docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
+            docker images ${GITLAB_CR_URL}/${GITLAB_CR_GROUP}/${GITLAB_CR_IMAGE} -q | xargs --no-run-if-empty docker rmi -f
+            docker images ${DOCKER_HUB_GROUP}/${DOCKER_HUB_IMAGE} -q | xargs --no-run-if-empty docker rmi -f
+            docker volume ls -qf dangling=true | xargs --no-run-if-empty docker volume rm
