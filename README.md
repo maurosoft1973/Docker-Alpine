@@ -58,9 +58,11 @@ Alpine Linux is a Linux distribution built around musl libc and BusyBox. The ima
 
 
 ## Layers & Sizes
+
 | Version                                                                               | Size                                                                                                                 |
 |---------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
 | ![Version](https://img.shields.io/badge/version-amd64-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/latest?style=for-the-badge)  |
+| ![Version](https://img.shields.io/badge/version-aarch64-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/aarch64?style=for-the-badge) |
 | ![Version](https://img.shields.io/badge/version-armv6-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/armhf?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-armv7-blue.svg?style=for-the-badge)   | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/armv7?style=for-the-badge)   |
 | ![Version](https://img.shields.io/badge/version-ppc64le-blue.svg?style=for-the-badge) | ![MicroBadger Size (tag)](https://img.shields.io/docker/image-size/maurosoft1973/alpine/ppc64le?style=for-the-badge) |
@@ -99,6 +101,7 @@ When setting locale, also make sure to choose a locale otherwise it will be the 
 | sv_SE.UTF-8     |
 +-----------------+
 ```
+
 ## Example of use
 
 ### 1.Creating an instance (default timezone and locale)
@@ -120,4 +123,4 @@ docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome 
 ```
 
 ***
-###### Last Update 21.05.2023 14:52:16
+###### Last Update 21.05.2023 16:03:14
