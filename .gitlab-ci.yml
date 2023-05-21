@@ -103,6 +103,11 @@ container_test:
     stage: test
     image: docker:23.0.4
     needs: ["build"]
+    rules:
+        - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+          changes:
+            - README.tpl
+          when: never
     tags:
         - dind64
     script:
@@ -126,6 +131,11 @@ container_test:
 container_scanning:
     needs: ["build"]
     before_script: []
+    rules:
+        - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+          changes:
+            - README.tpl
+          when: never
     tags:
         - dind64
     variables:
