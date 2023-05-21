@@ -26,13 +26,6 @@ stages:
     - readme
     - clean
 
-workflow:
-    rules:
-    - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
-      changes:
-        - README.tpl
-      when: never
-
 before_script:
     - apk add --no-cache git bash curl file
     - /bin/bash
@@ -54,6 +47,11 @@ before_script:
 build:
     stage: build
     image: docker:23.0.4
+    rules:
+        - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+          changes:
+            - README.tpl
+          when: never
     tags:
         - dind64
     script:
@@ -137,6 +135,11 @@ deploy:
     stage: deploy
     image: docker:23.0.4
     needs: ["build","container_test"]
+    rules:
+        - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+          changes:
+            - README.tpl
+          when: never
     tags:
         - dind64
     script:
@@ -238,6 +241,11 @@ readme:
 clean:
     stage: clean
     needs: ["deploy"]
+    rules:
+        - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
+          changes:
+            - README.tpl
+          when: never
     allow_failure: true
     tags:
         - dind64
