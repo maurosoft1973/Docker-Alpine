@@ -52,6 +52,7 @@ build:
           changes:
             - README.tpl
           when: never
+        - when: always
     tags:
         - dind64
     script:
@@ -108,6 +109,7 @@ container_test:
           changes:
             - README.tpl
           when: never
+        - when: always
     tags:
         - dind64
     script:
@@ -136,6 +138,7 @@ container_scanning:
           changes:
             - README.tpl
           when: never
+        - when: always
     tags:
         - dind64
     variables:
@@ -150,6 +153,7 @@ deploy:
           changes:
             - README.tpl
           when: never
+        - when: always
     tags:
         - dind64
     script:
@@ -213,11 +217,6 @@ deploy:
 readme:
     stage: readme
     image: docker:23.0.4
-    rules:
-      - if: ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH)
-        changes:
-        - README.tpl
-        when: always
     variables:
         DOCKERHUB_REPO_PREFIX: "maurosoft1973"
         DOCKERHUB_REPO_NAME: "alpine"
@@ -255,6 +254,7 @@ clean:
           changes:
             - README.tpl
           when: never
+        - when: always
     allow_failure: true
     tags:
         - dind64
