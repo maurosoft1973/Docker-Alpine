@@ -113,13 +113,13 @@ container_test:
     tags:
         - dind64
     script:
-        - |
-            docker pull $DOCKER_IMAGE_TEST
         - apk add --no-cache curl
         - |
             curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
             chmod +x container-structure-test-linux-amd64
             mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
+        - |
+            docker pull $DOCKER_IMAGE_TEST
         - |
             container-structure-test -c test.yaml --image $DOCKER_IMAGE_TEST --test-report junit-test-result.xml --output junit test
     artifacts:
