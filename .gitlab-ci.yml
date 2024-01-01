@@ -221,6 +221,13 @@ deploy:
 readme:
     stage: readme
     image: docker:23.0.4
+    variables:
+        DOCKER_USER: $DOCKER_HUB_USERNAME
+        DOCKER_PASS: $DOCKER_HUB_PASSWORD
+        PUSHRM_SHORT: "Alpine Linux Docker Image with Multilanguage e Timezone support"
+        PUSHRM_TARGET: docker.io/$DOCKER_HUB_USERNAME/alpine
+        PUSHRM_DEBUG: 1
+        PUSHRM_FILE: /tmp/repository/README.md
     tags:
         - dind64
     script:
@@ -241,22 +248,12 @@ readme:
             git add .
             git commit -m "Update README for Alpine Version ${ALPINE_VERSION}"
             git push --push-option="ci.skip" https://gitlab-ci-token:${GITLAB_TOKEN}@${CI_SERVER_HOST}/$CI_PROJECT_PATH.git HEAD:$CI_COMMIT_BRANCH
-
-pushrm:
-    stage: readme
-    image:
-        name: chko/docker-pushrm
-        entrypoint: ["/bin/sh", "-c", "/docker-pushrm"]
-    before_script: []
-    needs: ["readme"]
-    variables:
-        DOCKER_USER: $DOCKER_HUB_USERNAME
-        DOCKER_PASS: $DOCKER_HUB_PASSWORD
-        PUSHRM_SHORT: "Alpine Linux Docker Image with Multilanguage e Timezone support"
-        PUSHRM_TARGET: docker.io/$DOCKER_HUB_USERNAME/alpine
-        PUSHRM_DEBUG: 1
-        PUSHRM_FILE: $CI_PROJECT_DIR/README.md
-    script: "/bin/true"
+        - |
+            curl -LO https://github.com/christian-korneck/docker-pushrm/releases/download/v1.9.0/docker-pushrm_linux_amd64 
+            chmod +x docker-pushrm_linux_amd64
+            mv docker-pushrm_linux_amd64 /usr/local/bin/docker-pushrm
+        - |
+            docker-pushrm docker.io/$DOCKER_HUB_USERNAME/alpine
 
 clean:
     stage: clean
