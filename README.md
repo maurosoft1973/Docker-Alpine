@@ -123,4 +123,4 @@ docker run --rm -it --name alpine -e LC_ALL=it_IT.UTF-8 -e TIMEZONE=Europe/Rome 
 ```
 
 ***
-###### Last Update 01.01.2024 12:41:16
+###### Last Update 01.01.2024 13:12:01
