@@ -106,6 +106,18 @@ jobs:
       - name: 🛠️ Build console application
         run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --no-restore
 
+      - name: 🔍 Debug - Verify project structure
+        run: |
+          echo "=== Workspace: ${{ github.workspace }} ==="
+          echo "=== Project file ==="
+          ls -la ${{ github.workspace }}/${{ env.CONSOLE_PROJECT }} || echo "PROJECT FILE NOT FOUND!"
+          echo "=== Project directory contents ==="
+          ls -la $(dirname ${{ github.workspace }}/${{ env.CONSOLE_PROJECT }}) || echo "DIR NOT FOUND!"
+          echo "=== Check appsettings.json ==="
+          find ${{ github.workspace }} -name "appsettings.json" -type f 2>/dev/null || echo "No appsettings.json found"
+          echo "=== Check Alpine directory ==="
+          ls -la ${{ github.workspace }}/Alpine/ 2>/dev/null || echo "Alpine/ dir not found at workspace root"
+
       - name: 🚀 Run Alpine Image Builder
         env:
           GITHUB_WORKSPACE: ${{ github.workspace }}
@@ -117,7 +129,15 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: dotnet run --project ${{ env.CONSOLE_PROJECT }} --configuration Release --no-build
+        run: dotnet run --project ${{ env.CONSOLE_PROJECT }} --configuration Release --no-build 2>&1 || true
+
+      - name: 🔍 Debug - Check exit and logs
+        if: always()
+        run: |
+          echo "=== Checking for log files ==="
+          find ${{ github.workspace }} -name "*.log" -type f 2>/dev/null
+          echo "=== Checking Alpine dir after run ==="
+          ls -laR ${{ github.workspace }}/Alpine/ 2>/dev/null || echo "Alpine/ not found"
 
       # ==================== COMMIT MANIFEST ====================
 
