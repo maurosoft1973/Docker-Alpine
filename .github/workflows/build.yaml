@@ -79,29 +79,29 @@ jobs:
 
       # ==================== DOCKER LOGIN ====================
 
-      - name: 🔑 Login to Docker Hub
-        if: env.DOCKER_USERNAME != ''
-        uses: docker/login-action@v3
-        env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
+      # - name: 🔑 Login to Docker Hub
+      #   if: env.DOCKER_USERNAME != ''
+      #   uses: docker/login-action@v3
+      #   env:
+      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      #   with:
+      #     username: ${{ secrets.DOCKER_USERNAME }}
+      #     password: ${{ secrets.DOCKER_TOKEN }}
 
-      - name: 🔑 Login to GitHub Container Registry
-        if: env.GHCR_TOKEN != ''
-        uses: docker/login-action@v3
-        env:
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}
+      # - name: 🔑 Login to GitHub Container Registry
+      #   if: env.GHCR_TOKEN != ''
+      #   uses: docker/login-action@v3
+      #   env:
+      #     GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.actor }}
+      #     password: ${{ secrets.GHCR_TOKEN }}
 
       # ==================== BUILD & RUN ====================
 
-      - name: 📦 Restore dependencies
-        run: dotnet restore ${{ env.CONSOLE_PROJECT }}
+      # - name: 📦 Restore dependencies
+      #   run: dotnet restore ${{ env.CONSOLE_PROJECT }}
 
       - name: 🛠️ Build console application
         run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --output ${{ github.workspace }}/artifacts
@@ -110,16 +110,7 @@ jobs:
         run: |
           echo "=== Workspace: ${{ github.workspace }} ==="
           echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
-          echo "=== Project directory contents ==="
-          ls -la ${{ github.workspace }}/artifacts/Alpine/ || echo "artifacts/Alpine/ DIR NOT FOUND!"
-          echo "=== Check appsettings.json ==="
-          ls -la ${{ github.workspace }}/artifacts/Alpine/appsettings.json || echo "appsettings.json NOT FOUND!"
-          echo "=== Check .env ==="
-          ls -la ${{ github.workspace }}/artifacts/Alpine/.env || echo ".env NOT FOUND!"
-          echo "=== Check Alpine Docker directory ==="
-          ls -la ${{ github.workspace }}/artifacts/Alpine/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ dir not found"
-          echo "=== Check Dockerfile ==="
-          ls -la ${{ github.workspace }}/artifacts/Alpine/Docker/Dockerfile 2>/dev/null || echo "Dockerfile not found"
+          ls -laR ${{ github.workspace }}/artifacts
 
       - name: 🚀 Run Alpine Image Builder
         env:
