@@ -1,0 +1,515 @@
+{
+  "ImageName": "",
+  "Architectures": [
+    "x86_64",
+    "aarch64"
+  ],
+  "Versions": {
+    "3.23.3": {
+      "Version": "3.23.3",
+      "Tag": "3.23",
+      "Variant": null,
+      "ReleaseDate": "2025-12-03T00:00:00Z",
+      "EndOfLifeDate": "2027-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.23",
+        "BranchDate": "2025-12-03"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.23.2": {
+      "Version": "3.23.2",
+      "Tag": "3.23",
+      "Variant": null,
+      "ReleaseDate": "2025-12-03T00:00:00Z",
+      "EndOfLifeDate": "2027-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.23",
+        "BranchDate": "2025-12-03"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.23.0": {
+      "Version": "3.23.0",
+      "Tag": "3.23",
+      "Variant": null,
+      "ReleaseDate": "2025-12-03T00:00:00Z",
+      "EndOfLifeDate": "2027-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.23",
+        "BranchDate": "2025-12-03"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.22.3": {
+      "Version": "3.22.3",
+      "Tag": "3.22",
+      "Variant": null,
+      "ReleaseDate": "2025-05-30T00:00:00Z",
+      "EndOfLifeDate": "2027-05-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.22",
+        "BranchDate": "2025-05-30"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.22.2": {
+      "Version": "3.22.2",
+      "Tag": "3.22",
+      "Variant": null,
+      "ReleaseDate": "2025-05-30T00:00:00Z",
+      "EndOfLifeDate": "2027-05-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.22",
+        "BranchDate": "2025-05-30"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.22.1": {
+      "Version": "3.22.1",
+      "Tag": "3.22",
+      "Variant": null,
+      "ReleaseDate": "2025-05-30T00:00:00Z",
+      "EndOfLifeDate": "2027-05-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.22",
+        "BranchDate": "2025-05-30"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.22.0": {
+      "Version": "3.22.0",
+      "Tag": "3.22",
+      "Variant": null,
+      "ReleaseDate": "2025-05-30T00:00:00Z",
+      "EndOfLifeDate": "2027-05-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.22",
+        "BranchDate": "2025-05-30"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.6": {
+      "Version": "3.21.6",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.5": {
+      "Version": "3.21.5",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.4": {
+      "Version": "3.21.4",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.3": {
+      "Version": "3.21.3",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.2": {
+      "Version": "3.21.2",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.1": {
+      "Version": "3.21.1",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.21.0": {
+      "Version": "3.21.0",
+      "Tag": "3.21",
+      "Variant": null,
+      "ReleaseDate": "2024-12-05T00:00:00Z",
+      "EndOfLifeDate": "2026-11-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.21",
+        "BranchDate": "2024-12-05"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.9": {
+      "Version": "3.20.9",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.8": {
+      "Version": "3.20.8",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.7": {
+      "Version": "3.20.7",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.6": {
+      "Version": "3.20.6",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.5": {
+      "Version": "3.20.5",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {},
+      "Status": "new",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.4": {
+      "Version": "3.20.4",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.4-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.4-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.4/x86_64/alpine-minirootfs-3.20.4-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.5081081Z",
+          "Size": 3484702,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.4-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.4-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.4/aarch64/alpine-minirootfs-3.20.4-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.5108527Z",
+          "Size": 3941911,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "failed",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.3": {
+      "Version": "3.20.3",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.3/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.4798779Z",
+          "Size": 3490290,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.3-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.3-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.3/aarch64/alpine-minirootfs-3.20.3-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.480551Z",
+          "Size": 3947906,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "failed",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.2": {
+      "Version": "3.20.2",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.2/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.2658328Z",
+          "Size": 3947409,
+          "Sha256": null,
+          "Verified": null
+        },
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.2-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.2/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.4521016Z",
+          "Size": 3489862,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "failed",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.1": {
+      "Version": "3.20.1",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.1-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.1/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.2237001Z",
+          "Size": 3487522,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.1-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.1-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.1/aarch64/alpine-minirootfs-3.20.1-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.2418534Z",
+          "Size": 3948433,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "failed",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    },
+    "3.20.0": {
+      "Version": "3.20.0",
+      "Tag": "3.20",
+      "Variant": null,
+      "ReleaseDate": "2024-05-22T00:00:00Z",
+      "EndOfLifeDate": "2026-04-01T00:00:00Z",
+      "Metadata": {
+        "Branch": "v3.20",
+        "BranchDate": "2024-05-22"
+      },
+      "Artifacts": {
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.0-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.0-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.0/x86_64/alpine-minirootfs-3.20.0-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:38.9972899Z",
+          "Size": 3487168,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.0-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.0-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.0/aarch64/alpine-minirootfs-3.20.0-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-01T19:10:39.1978145Z",
+          "Size": 3947706,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "failed",
+      "LastUpdatedUtc": null,
+      "BuiltAtUtc": null,
+      "PushedAtUtc": null,
+      "ErrorMessage": null
+    }
+  },
+  "LastModifiedUtc": "2026-02-01T19:10:39.5115164Z",
+  "SchemaVersion": 1,
+  "Metadata": {}
+}
