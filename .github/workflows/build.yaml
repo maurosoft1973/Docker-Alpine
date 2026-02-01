@@ -121,7 +121,7 @@ jobs:
           ENABLE_HEALTH_CHECKS: ${{ github.event.inputs.enable_health_checks || 'true' }}
           ENABLE_VULN_SCAN: 'false'
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: cd ${{ github.workspace }}/artifacts && dotnet DockerAlpine.dll
 
