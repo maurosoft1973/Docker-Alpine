@@ -43,8 +43,8 @@ jobs:
 
       - name: Build for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
         run:
-            dotnet build ${{ env.PROJECT_PATH }}/${{ env.PROJECT_NAME }} --configuration ${{ env.CONFIGURATION }} --no-restore --verbosity minimal --output ./${{ env.CONFIGURATION }}
+            dotnet build ${{ env.PROJECT_PATH }}/${{ env.PROJECT_NAME }} --configuration ${{ env.CONFIGURATION }} --no-restore --verbosity minimal --output ./artifacts/
 
       - name: Execute for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
         run:
-            dotnet run ./${{ env.CONFIGURATION }}/${{ env.PROJECT_BUILD }}
+            dotnet run ./artifacts/${{ env.PROJECT_BUILD }}
