@@ -301,7 +301,7 @@ var logger = new LoggerConfiguration()
 }
 catch (Exception ex)
 {
-    logger.Error(ex, "Fatal error in pipeline");
+    Console.WriteLine(ex.Message);
     return 1;
 }
 finally
