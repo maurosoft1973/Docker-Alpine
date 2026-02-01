@@ -134,7 +134,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: dotnet run --project ${{ env.CONSOLE_PROJECT }} --configuration Release --no-build 2>&1 || true
+        run: dotnet run --project ${{ env.CONSOLE_PROJECT }} --configuration Release
 
       - name: 🔍 Debug - Check exit and logs
         if: always()
