@@ -104,28 +104,26 @@ jobs:
         run: dotnet restore ${{ env.CONSOLE_PROJECT }}
 
       - name: 🛠️ Build console application
-        run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --no-restore --output ./artifacts
+        run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --output ${{ github.workspace }}/artifacts
 
       - name: 🔍 Debug - Verify project structure
         run: |
           echo "=== Workspace: ${{ github.workspace }} ==="
-          echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/src/DockerAlpine ==="
-          echo "=== Project file ==="
-          ls -la ${{ github.workspace }}/${{ env.CONSOLE_PROJECT }} || echo "PROJECT FILE NOT FOUND!"
+          echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
           echo "=== Project directory contents ==="
-          ls -la ${{ github.workspace }}/src/DockerAlpine/ || echo "src/DockerAlpine/ DIR NOT FOUND!"
+          ls -la ${{ github.workspace }}/artifacts/Alpine/ || echo "artifacts/Alpine/ DIR NOT FOUND!"
           echo "=== Check appsettings.json ==="
-          ls -la ${{ github.workspace }}/src/DockerAlpine/appsettings.json || echo "appsettings.json NOT FOUND!"
+          ls -la ${{ github.workspace }}/artifacts/Alpine/appsettings.json || echo "appsettings.json NOT FOUND!"
           echo "=== Check .env ==="
-          ls -la ${{ github.workspace }}/src/DockerAlpine/.env || echo ".env NOT FOUND!"
+          ls -la ${{ github.workspace }}/artifacts/Alpine/.env || echo ".env NOT FOUND!"
           echo "=== Check Alpine Docker directory ==="
-          ls -la ${{ github.workspace }}/src/DockerAlpine/Alpine/ 2>/dev/null || echo "src/DockerAlpine/Alpine/ dir not found"
+          ls -la ${{ github.workspace }}/artifacts/Alpine/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ dir not found"
           echo "=== Check Dockerfile ==="
-          ls -la ${{ github.workspace }}/src/DockerAlpine/Alpine/Docker/Dockerfile 2>/dev/null || echo "Dockerfile not found"
+          ls -la ${{ github.workspace }}/artifacts/Alpine/Docker/Dockerfile 2>/dev/null || echo "Dockerfile not found"
 
       - name: 🚀 Run Alpine Image Builder
         env:
-          GITHUB_WORKSPACE: ${{ github.workspace }}/src/DockerAlpine
+          GITHUB_WORKSPACE: ${{ github.workspace }}/artifacts
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
           IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
@@ -134,17 +132,17 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: cd ./artifacts && dotnet DockerAlpine.dll
+        run: cd ${{ github.workspace }}/artifacts && dotnet DockerAlpine.dll
 
       - name: 🔍 Debug - Check exit and logs
         if: always()
         run: |
           echo "=== Checking for log files ==="
-          find ${{ github.workspace }}/src/DockerAlpine -name "*.log" -type f 2>/dev/null || echo "No log files found"
+          find ${{ github.workspace }}/artifacts/Alpine -name "*.log" -type f 2>/dev/null || echo "No log files found"
           echo "=== Checking Alpine dir after run ==="
-          ls -laR ${{ github.workspace }}/src/DockerAlpine/Alpine/ 2>/dev/null || echo "src/DockerAlpine/Alpine/ not found"
+          ls -laR ${{ github.workspace }}/artifacts/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ not found"
           echo "=== Checking manifest.json ==="
-          cat ${{ github.workspace }}/src/DockerAlpine/Alpine/manifest.json 2>/dev/null || echo "manifest.json not found"
+          cat ${{ github.workspace }}/artifacts/Alpine/manifest.json 2>/dev/null || echo "manifest.json not found"
 
       # ==================== COMMIT MANIFEST ====================
 
