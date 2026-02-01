@@ -115,8 +115,6 @@ jobs:
       - name: 🚀 Run Alpine Image Builder
         env:
           GITHUB_WORKSPACE: ${{ github.workspace }}/artifacts
-          SERILOG_SINK_FILE_ROLLING_INTERVAL: 'Day'
-          SERILOG_SINK_FILE_RETAINEDFILECOUNTLIMIT: '1'
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
           IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
