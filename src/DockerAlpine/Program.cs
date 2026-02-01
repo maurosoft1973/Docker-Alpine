@@ -30,9 +30,13 @@ var repoRoot = !string.IsNullOrWhiteSpace(workspace)
     ? workspace
     : Directory.GetCurrentDirectory();
 
+
+try
+{
+
 DotEnv.Load(Path.Combine(repoRoot, ".env"));
 
-Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
+   Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
 
 var configuration = new ConfigurationBuilder()
     .SetBasePath(repoRoot)
@@ -44,9 +48,6 @@ var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(configuration)
     .Enrich.FromLogContext()
     .CreateLogger();
-
-try
-{
     logger.Information("═══════════════════════════════════════════════════");
     logger.Information("Alpine Automatic Build - Starting");
     logger.Information("Repository root: {RepoRoot}", repoRoot);
