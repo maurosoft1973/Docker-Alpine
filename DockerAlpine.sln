@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C83A596-D32D-B35F-00DD-F0C99B673980}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementi di soluzione", "Elementi di soluzione", "{9DF70304-0A22-CE1E-AA12-D5904EE55694}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		LICENSE.md = LICENSE.md
+		nuget.config = nuget.config
+		README.md = README.md
+		test-coverage.ps1 = test-coverage.ps1
+		test-coverage.sh = test-coverage.sh
+		tests.runsettings = tests.runsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{947EA509-95CB-4EBB-B558-FDDA049BF302}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{47816D64-8978-4DBA-9710-C5A00CDDC8D9}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yaml = .github\workflows\build.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpine", "src\Alpine\Alpine.csproj", "{3DFC7B7B-6724-7558-8832-294AA54C313B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DFC7B7B-6724-7558-8832-294AA54C313B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DFC7B7B-6724-7558-8832-294AA54C313B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DFC7B7B-6724-7558-8832-294AA54C313B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DFC7B7B-6724-7558-8832-294AA54C313B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{947EA509-95CB-4EBB-B558-FDDA049BF302} = {9DF70304-0A22-CE1E-AA12-D5904EE55694}
+		{47816D64-8978-4DBA-9710-C5A00CDDC8D9} = {947EA509-95CB-4EBB-B558-FDDA049BF302}
+		{3DFC7B7B-6724-7558-8832-294AA54C313B} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {93FA4AE0-FC09-47FD-ADDA-4C9CA274BFE9}
+	EndGlobalSection
+EndGlobal

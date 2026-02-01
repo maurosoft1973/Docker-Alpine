@@ -1,0 +1,37 @@
+﻿# .NET
+bin/
+artifacts/
+coveragereport/
+TestResults/
+obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.log
+
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio
+.vs/
+*.DotSettings.user
+
+# Environment
+.env
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary
+temp/
+tmp/
+*.tmp

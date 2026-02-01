@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <RunConfiguration>
+    <EnvironmentVariables>
+      <!-- Scegli UNO dei due a seconda della tua config Docker -->
+
+      <!-- A) Docker Desktop con daemon esposto su TCP (Impostazioni > Docker Engine > Expose daemon) -->
+      <!-- <DOCKER_HOST>tcp://localhost:2375</DOCKER_HOST> -->
+      <!-- <DOCKER_TLS_CERTDIR></DOCKER_TLS_CERTDIR> -->
+
+      <!-- B) Docker Desktop default (named pipe Windows) -->
+      <DOCKER_HOST>tcp://localhost:2375</DOCKER_HOST>
+      <DOCKER_TLS_CERTDIR></DOCKER_TLS_CERTDIR>
+
+      <!-- Opzionali ma utili per Testcontainers -->
+      <TESTCONTAINERS_LOG_LEVEL>debug</TESTCONTAINERS_LOG_LEVEL>
+      <TESTCONTAINERS_RYUK_DISABLED>false</TESTCONTAINERS_RYUK_DISABLED>
+      <!-- Se necessario: path socket usato da Ryuk (default /var/run/docker.sock va bene con Docker Desktop) -->
+      <!-- <TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE>/var/run/docker.sock</TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE> -->
+    </EnvironmentVariables>
+  </RunConfiguration>
+</RunSettings>

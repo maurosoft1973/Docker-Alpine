@@ -1,0 +1,48 @@
+name: Build and Execute DockerAlpine
+on:
+  push:
+    branches: [main,master]
+    paths:  [ 'src/**', 'Directory.Packages.props' ]
+  pull_request:
+    branches: [main,master]
+    paths:  [ 'src/**' ]
+  workflow_dispatch:
+    inputs:
+      configuration:
+        type: choice
+        description: The build configuration to use in the deploy stage.
+        required: true
+        default: Release
+        options:
+          - Debug
+          - Release
+
+env:
+  TIMEZONE: 'Europe/Rome'
+  CONFIGURATION: 'Release'
+  PROJECT_PATH: src/Alpine
+  PROJECT_NAME: Alpine.csproj
+  BUILD_ARTIFACT: Maurosoft.Docker.Alpine
+
+jobs:
+  build:
+    name: 🛠️ Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: maurosoft1973/gha-git-checkout@v1
+
+      - name: Install .NET
+        uses: maurosoft1973/gha-dotnet-install@v1
+        with:
+          includeEndOfFileVersion: true
+
+      - name: Restore Dependencies
+        uses: maurosoft1973/gha-dotnet-restore@v1
+
+      - name: Build for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
+        uses: maurosoft1973/gha-dotnet-build@v1
+        with:
+          projects: ${{ env.PROJECT_PATH }}/${{ env.PROJECT_NAME }}
+          configuration: ${{ env.CONFIGURATION }}
+          uploadBuildArtifactName: ${{ env.BUILD_ARTIFACT }}
