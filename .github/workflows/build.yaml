@@ -104,7 +104,7 @@ jobs:
         run: dotnet restore ${{ env.CONSOLE_PROJECT }}
 
       - name: 🛠️ Build console application
-        run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --no-restore
+        run: dotnet build ${{ env.CONSOLE_PROJECT }} --configuration Release --no-restore --output ./artifacts
 
       - name: 🔍 Debug - Verify project structure
         run: |
@@ -134,7 +134,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: dotnet run --project ${{ env.CONSOLE_PROJECT }} --configuration Release
+        run: cd ./artifacts && dotnet DockerAlpine.dll
 
       - name: 🔍 Debug - Check exit and logs
         if: always()
