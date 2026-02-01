@@ -20,10 +20,9 @@ on:
 env:
   TIMEZONE: 'Europe/Rome'
   CONFIGURATION: 'Release'
-  PROJECT_PATH: src/Alpine
-  PROJECT_NAME: Alpine.csproj
-  PROJECT_BUILD: Alpine.dll
-  BUILD_ARTIFACT: Maurosoft.Docker.Alpine
+  PROJECT_PATH: src/DockerAlpine
+  PROJECT_NAME: DockerAlpine.csproj
+  PROJECT_BUILD: DockerAlpine.dll
 
 jobs:
   build:
