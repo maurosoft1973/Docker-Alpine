@@ -46,4 +46,4 @@ jobs:
 
       - name: Execute for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
         run:
-            dotnet run ./artifacts/${{ env.PROJECT_BUILD }}
+            dotnet ./artifacts/${{ env.PROJECT_BUILD }}
