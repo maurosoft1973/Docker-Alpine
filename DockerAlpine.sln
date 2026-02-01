@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\build.yaml = .github\workflows\build.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpine", "src\Alpine\Alpine.csproj", "{3DFC7B7B-6724-7558-8832-294AA54C313B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerAlpine", "src\DockerAlpine\DockerAlpine.csproj", "{3DFC7B7B-6724-7558-8832-294AA54C313B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
