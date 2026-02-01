@@ -22,6 +22,7 @@ env:
   CONFIGURATION: 'Release'
   PROJECT_PATH: src/Alpine
   PROJECT_NAME: Alpine.csproj
+  PROJECT_BUILD: Alpine.dll
   BUILD_ARTIFACT: Maurosoft.Docker.Alpine
 
 jobs:
@@ -41,8 +42,9 @@ jobs:
         uses: maurosoft1973/gha-dotnet-restore@v1
 
       - name: Build for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
-        uses: maurosoft1973/gha-dotnet-build@v1
-        with:
-          projects: ${{ env.PROJECT_PATH }}/${{ env.PROJECT_NAME }}
-          configuration: ${{ env.CONFIGURATION }}
-          uploadBuildArtifactName: ${{ env.BUILD_ARTIFACT }}
+        run:
+            dotnet build ${{ env.PROJECT_PATH }}/${{ env.PROJECT_NAME }} --configuration ${{ env.CONFIGURATION }} --no-restore --verbosity minimal --output ./${{ env.CONFIGURATION }}
+
+      - name: Execute for ${{ env.PROJECT_NAME }} (${{ env.CONFIGURATION }})
+        run:
+            dotnet run ./${{ env.CONFIGURATION }}/${{ env.PROJECT_BUILD }}
