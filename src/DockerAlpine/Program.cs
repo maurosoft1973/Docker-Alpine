@@ -48,9 +48,11 @@ try
 
     Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
 
+    Serilog.Debugging.SelfLog.Enable(msg => Console.Error.WriteLine(msg));
+
     var configuration = new ConfigurationBuilder()
         .SetBasePath(repoRoot)
-        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
         .AddEnvironmentVariables()
         .Build();
 
