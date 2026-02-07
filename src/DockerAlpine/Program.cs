@@ -37,6 +37,8 @@ var repoRoot = !string.IsNullOrWhiteSpace(workspace)
 
 try
 {
+    Environment.Exit(0);
+
     DotEnv.Load(Path.Combine(repoRoot, ".env"));
 
     Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
@@ -68,6 +70,9 @@ try
     logger.Information("  Parallel builds: {Enabled}", configuration.GetValue<bool>("ENABLE_PARALLEL_BUILDS", true));
     logger.Information("  Health checks: {Enabled}", configuration.GetValue<bool>("ENABLE_HEALTH_CHECKS", true));
     logger.Information("  Vulnerability scanning: {Enabled}", configuration.GetValue<bool>("ENABLE_VULN_SCAN", true));
+    logger.Information("  Alpine Rootfs cache: {CacheRoot}", settings.CacheRoot);
+    logger.Information("  Manifest Git Path: {ManifestGitPath}", manifestGitPath);
+    logger.Information("  Limit: {Limit}", Environment.GetEnvironmentVariable("LIMIT") ?? "unlimited");
 
     Directory.CreateDirectory(settings.AlpineRoot);
     Directory.CreateDirectory(settings.CacheRoot);
@@ -264,7 +269,7 @@ try
     }
 
     // Ensure manifest is copied to the git repository if it's different
-    File.Copy(settings.ManifestPath, manifestGitPath);
+    File.Move(settings.ManifestPath, manifestGitPath, true);
     logger.Information("Updated manifest copied to git repository");
 
     // ==================== GIT COMMIT ====================
