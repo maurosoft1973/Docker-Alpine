@@ -1,4 +1,5 @@
-﻿using DockerImageBuilder.Alpine;
+﻿using System.Reflection;
+using DockerImageBuilder.Alpine;
 using DockerImageBuilder.Alpine.BuildArgs;
 using DockerImageBuilder.Alpine.Download;
 using DockerImageBuilder.Alpine.Scraping;
@@ -25,36 +26,38 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
+var projectRoot = ProjectInfo.ProjectRoot;
+var alpineGitRoot = Path.Combine(projectRoot, "Alpine");
+var manifestGitPath = Path.Combine(alpineGitRoot, "manifest.json");
+
 var workspace = Environment.GetEnvironmentVariable("GITHUB_WORKSPACE");
 var repoRoot = !string.IsNullOrWhiteSpace(workspace)
     ? workspace
     : Directory.GetCurrentDirectory();
 
-
 try
 {
+    DotEnv.Load(Path.Combine(repoRoot, ".env"));
 
-DotEnv.Load(Path.Combine(repoRoot, ".env"));
+    Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
 
-   Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
+    var configuration = new ConfigurationBuilder()
+        .SetBasePath(repoRoot)
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .AddEnvironmentVariables()
+        .Build();
 
-var configuration = new ConfigurationBuilder()
-    .SetBasePath(repoRoot)
-    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-    .AddEnvironmentVariables()
-    .Build();
+    var logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(configuration)
+        .Enrich.FromLogContext()
+        .CreateLogger();
 
-var logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(configuration)
-    .Enrich.FromLogContext()
-    .CreateLogger();
     logger.Information("═══════════════════════════════════════════════════");
     logger.Information("Alpine Automatic Build - Starting");
     logger.Information("Repository root: {RepoRoot}", repoRoot);
     logger.Information("═══════════════════════════════════════════════════");
 
     // ==================== SETTINGS ====================
-
     var settings = Settings.Load(configuration, repoRoot);
 
     logger.Information("Configuration loaded:");
@@ -99,11 +102,12 @@ var logger = new LoggerConfiguration()
     {
         builder.AddDockerHub(Environment.GetEnvironmentVariable("DOCKER_USERNAME") ?? "", Environment.GetEnvironmentVariable("DOCKER_PASSWORD") ?? "", Environment.GetEnvironmentVariable("DOCKER_NAMESPACE") ?? "");
     });
+
     // Registrazione DI
     builder.Services.AddManifestGitService(o =>
     {
         o.WorkingDirectory = settings.RepoRoot;
-        o.ManifestRelativePath = "Alpine/manifest.json";
+        o.ManifestRelativePath = manifestGitPath;
         o.AuthorName = "github-actions[bot]";
         o.AuthorEmail = "github-actions[bot]@users.noreply.github.com";
     });
@@ -111,7 +115,6 @@ var logger = new LoggerConfiguration()
     var app = builder.Build();
 
     // ==================== PROCESSING ====================
-    //var http = HttpClientFactory.Create(settings.UserAgent);
     var manifestStore = app.Services.GetRequiredService<IManifestStore>();
     var scraper = app.Services.GetRequiredService<IAlpineScraper>();
     var downloader = app.Services.GetRequiredService<IAlpineRootFsDownloader>();
@@ -260,6 +263,11 @@ var logger = new LoggerConfiguration()
         current++;
     }
 
+    // Ensure manifest is copied to the git repository if it's different
+    File.Copy(settings.ManifestPath, manifestGitPath);
+    logger.Information("Updated manifest copied to git repository");
+
+    // ==================== GIT COMMIT ====================
     var gitResult = await gitService.CommitAndPushManifestAsync();
 
     switch (gitResult.Action)
@@ -274,8 +282,6 @@ var logger = new LoggerConfiguration()
             logger.Error("Git failed: {Error}", gitResult.ErrorMessage);
             break;
     }
-
-    var registryManager = app.Services.GetRequiredService<RegistryManager>();
 
     // ==================== SUMMARY ====================
     logger.Information("");
@@ -307,4 +313,13 @@ catch (Exception ex)
 finally
 {
     await Log.CloseAndFlushAsync();
+}
+
+public static class ProjectInfo
+{
+    public static string ProjectRoot =>
+        Assembly.GetExecutingAssembly()
+            .GetCustomAttributes<AssemblyMetadataAttribute>()
+            .First(a => a.Key == "ProjectRoot")
+            .Value!;
 }

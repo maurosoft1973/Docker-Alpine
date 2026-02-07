@@ -7,6 +7,17 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+        <ProjectRoot>$(MSBuildProjectDirectory)</ProjectRoot>
+  </PropertyGroup>
+
+  <ItemGroup>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+        <_Parameter1>ProjectRoot</_Parameter1>
+        <_Parameter2>$(ProjectRoot)</_Parameter2>
+      </AssemblyAttribute>
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Maurosoft.DockerImageBuilder.Abstractions" />
     <PackageReference Include="Maurosoft.DockerImageBuilder.Alpine" />
