@@ -81,16 +81,10 @@ jobs:
       - name: 🛠️ Build console application
         run: dotnet build "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
 
-      - name: 🔍 Debug - Verify project structure
-        run: |
-          echo "=== Workspace: ${{ github.workspace }} ==="
-          echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
-          ls -laR ${{ github.workspace }}/artifacts
-
       - name: 🚀 Run Alpine Image Builder
         env:
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
-          IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpinenew' }}
+          IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
           ENABLE_HEALTH_CHECKS: ${{ github.event.inputs.enable_health_checks || 'true' }}
           ENABLE_VULN_SCAN: 'false'
