@@ -100,17 +100,16 @@ jobs:
 
       # ==================== BUILD & RUN ====================
       - name: 🛠️ Build console application
-        run: dotnet publish "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
+        run: dotnet build "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
 
-      # - name: 🔍 Debug - Verify project structure
-      #   run: |
-      #     echo "=== Workspace: ${{ github.workspace }} ==="
-      #     echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
-      #     ls -laR ${{ github.workspace }}/artifacts
+      - name: 🔍 Debug - Verify project structure
+        run: |
+          echo "=== Workspace: ${{ github.workspace }} ==="
+          echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
+          ls -laR ${{ github.workspace }}/artifacts
 
       - name: 🚀 Run Alpine Image Builder
         env:
-          APP_OUTPUT: ${{ github.workspace }}/artifacts
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
           IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
@@ -119,6 +118,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LIMIT: 1
         run: |
             set -euxo pipefail
             cd "${{ github.workspace }}/artifacts"
