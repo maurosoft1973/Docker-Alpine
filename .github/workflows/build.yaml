@@ -77,27 +77,6 @@ jobs:
       - name: 🐋 set up qemu (multi-architecture)
         uses: docker/setup-qemu-action@v3
 
-      # ==================== DOCKER LOGIN ====================
-
-      # - name: 🔑 Login to Docker Hub
-      #   if: env.DOCKER_USERNAME != ''
-      #   uses: docker/login-action@v3
-      #   env:
-      #     DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_TOKEN }}
-
-      # - name: 🔑 Login to GitHub Container Registry
-      #   if: env.GHCR_TOKEN != ''
-      #   uses: docker/login-action@v3
-      #   env:
-      #     GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GHCR_TOKEN }}
-
       # ==================== BUILD & RUN ====================
       - name: 🛠️ Build console application
         run: dotnet build "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
@@ -111,7 +90,7 @@ jobs:
       - name: 🚀 Run Alpine Image Builder
         env:
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
-          IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
+          IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpinenew' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
           ENABLE_HEALTH_CHECKS: ${{ github.event.inputs.enable_health_checks || 'true' }}
           ENABLE_VULN_SCAN: 'false'
@@ -123,33 +102,3 @@ jobs:
             set -euxo pipefail
             cd "${{ github.workspace }}/artifacts"
             dotnet DockerAlpine.dll
-
-      # - name: 🔍 Debug - Check exit and logs
-      #   if: always()
-      #   run: |
-      #     echo "=== Checking for log files ==="
-      #     find ${{ github.workspace }}/artifacts/Alpine -name "*.log" -type f 2>/dev/null || echo "No log files found"
-      #     echo "=== Checking Alpine dir after run ==="
-      #     ls -laR ${{ github.workspace }}/artifacts/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ not found"
-      #     echo "=== Checking manifest.json ==="
-      #     cat ${{ github.workspace }}/artifacts/Alpine/manifest.json 2>/dev/null || echo "manifest.json not found"
-
-      # ==================== COMMIT MANIFEST ====================
-
-      # - name: 📝 Commit and push manifest.json
-      #   if: always()
-      #   run: |
-      #     MANIFEST_PATH="src/DockerAlpine/Alpine/manifest.json"
-
-      #     if git diff --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
-      #        git diff --cached --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
-      #        [ -z "$(git ls-files --others --exclude-standard -- "$MANIFEST_PATH")" ]; then
-      #       echo "::notice::No changes in manifest.json, skipping commit"
-      #     else
-      #       git config user.name "github-actions[bot]"
-      #       git config user.email "github-actions[bot]@users.noreply.github.com"
-      #       git add "$MANIFEST_PATH"
-      #       git commit -m "chore: update manifest.json [skip ci]"
-      #       git push
-      #       echo "::notice::Manifest committed and pushed successfully"
-      #     fi

@@ -8,7 +8,7 @@
     <PackageVersion Include="coverlet.msbuild" Version="6.0.4" />
     <PackageVersion Include="Maurosoft.DockerImageBuilder.Abstractions" Version="1.0.2" />
     <PackageVersion Include="Maurosoft.DockerImageBuilder.Alpine" Version="1.0.4" />
-    <PackageVersion Include="Maurosoft.DockerImageBuilder.Core" Version="1.0.4" />
+    <PackageVersion Include="Maurosoft.DockerImageBuilder.Core" Version="1.0.5" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="10.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.1" />
     <PackageVersion Include="Microsoft.Extensions.Http" Version="10.0.1" />
