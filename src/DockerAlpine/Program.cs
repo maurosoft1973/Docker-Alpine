@@ -70,6 +70,8 @@ try
     logger.Information("  Parallel builds: {Enabled}", configuration.GetValue<bool>("ENABLE_PARALLEL_BUILDS", true));
     logger.Information("  Health checks: {Enabled}", configuration.GetValue<bool>("ENABLE_HEALTH_CHECKS", true));
     logger.Information("  Vulnerability scanning: {Enabled}", configuration.GetValue<bool>("ENABLE_VULN_SCAN", true));
+    logger.Information("  Base Directory: {BaseDirectory}", AppContext.BaseDirectory);
+    logger.Information("  Alpine root: {AlpineRoot}", settings.AlpineRoot);
     logger.Information("  Alpine Rootfs cache: {CacheRoot}", settings.CacheRoot);
     logger.Information("  Manifest Git Path: {ManifestGitPath}", manifestGitPath);
     logger.Information("  Limit: {Limit}", Environment.GetEnvironmentVariable("LIMIT") ?? "unlimited");
@@ -77,10 +79,6 @@ try
     Directory.CreateDirectory(settings.AlpineRoot);
     Directory.CreateDirectory(settings.CacheRoot);
     Directory.CreateDirectory(Path.GetDirectoryName(settings.ManifestPath)!);
-
-    Console.WriteLine("End Alpine Automatic Build...");
-
-    Environment.Exit(0);
 
     var builder = Host.CreateApplicationBuilder(args);
     builder.Configuration.AddConfiguration(configuration);
