@@ -26,18 +26,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
-Console.WriteLine("Starting Alpine Automatic Build...");
-
-foreach (System.Collections.DictionaryEntry e in Environment.GetEnvironmentVariables())
-{
-    Console.WriteLine($"{e.Key}={e.Value}");
-}
-
 var projectRoot = ProjectInfo.ProjectRoot;
 var alpineGitRoot = Path.Combine(projectRoot, "Alpine");
 var manifestGitPath = Path.Combine(alpineGitRoot, "manifest.json");
 
-var workspace = Environment.GetEnvironmentVariable("GITHUB_WORKSPACE");
+var workspace = Environment.GetEnvironmentVariable("APP_OUTPUT");
 var repoRoot = !string.IsNullOrWhiteSpace(workspace)
     ? workspace
     : Directory.GetCurrentDirectory();

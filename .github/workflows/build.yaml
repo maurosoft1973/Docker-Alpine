@@ -110,7 +110,7 @@ jobs:
 
       - name: 🚀 Run Alpine Image Builder
         env:
-          GITHUB_WORKSPACE: ${{ github.workspace }}/artifacts
+          APP_OUTPUT: ${{ github.workspace }}/artifacts
           ARCHITECTURES: ${{ github.event.inputs.architectures || 'x86_64,aarch64' }}
           IMAGE_NAME: ${{ vars.IMAGE_NAME || 'alpine' }}
           DO_PUSH: ${{ github.event.inputs.do_push || 'true' }}
