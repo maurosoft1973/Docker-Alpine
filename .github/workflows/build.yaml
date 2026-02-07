@@ -104,13 +104,13 @@ jobs:
       #   run: dotnet restore ${{ env.CONSOLE_PROJECT }}
 
       - name: 🛠️ Build console application
-        run: dotnet publish ${{ env.CONSOLE_PROJECT }} -r linux-x64 --self-contained false --configuration Release --output ${{ github.workspace }}/artifacts
+        run: dotnet publish "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
 
-      - name: 🔍 Debug - Verify project structure
-        run: |
-          echo "=== Workspace: ${{ github.workspace }} ==="
-          echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
-          ls -laR ${{ github.workspace }}/artifacts
+      # - name: 🔍 Debug - Verify project structure
+      #   run: |
+      #     echo "=== Workspace: ${{ github.workspace }} ==="
+      #     echo "=== GITHUB_WORKSPACE (app): ${{ github.workspace }}/artifacts ==="
+      #     ls -laR ${{ github.workspace }}/artifacts
 
       - name: 🚀 Run Alpine Image Builder
         env:
@@ -125,32 +125,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: cd ${{ github.workspace }}/artifacts && dotnet DockerAlpine.dll
 
-      - name: 🔍 Debug - Check exit and logs
-        if: always()
-        run: |
-          echo "=== Checking for log files ==="
-          find ${{ github.workspace }}/artifacts/Alpine -name "*.log" -type f 2>/dev/null || echo "No log files found"
-          echo "=== Checking Alpine dir after run ==="
-          ls -laR ${{ github.workspace }}/artifacts/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ not found"
-          echo "=== Checking manifest.json ==="
-          cat ${{ github.workspace }}/artifacts/Alpine/manifest.json 2>/dev/null || echo "manifest.json not found"
+      # - name: 🔍 Debug - Check exit and logs
+      #   if: always()
+      #   run: |
+      #     echo "=== Checking for log files ==="
+      #     find ${{ github.workspace }}/artifacts/Alpine -name "*.log" -type f 2>/dev/null || echo "No log files found"
+      #     echo "=== Checking Alpine dir after run ==="
+      #     ls -laR ${{ github.workspace }}/artifacts/Alpine/ 2>/dev/null || echo "artifacts/Alpine/ not found"
+      #     echo "=== Checking manifest.json ==="
+      #     cat ${{ github.workspace }}/artifacts/Alpine/manifest.json 2>/dev/null || echo "manifest.json not found"
 
       # ==================== COMMIT MANIFEST ====================
 
-      - name: 📝 Commit and push manifest.json
-        if: always()
-        run: |
-          MANIFEST_PATH="src/DockerAlpine/Alpine/manifest.json"
+      # - name: 📝 Commit and push manifest.json
+      #   if: always()
+      #   run: |
+      #     MANIFEST_PATH="src/DockerAlpine/Alpine/manifest.json"
 
-          if git diff --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
-             git diff --cached --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
-             [ -z "$(git ls-files --others --exclude-standard -- "$MANIFEST_PATH")" ]; then
-            echo "::notice::No changes in manifest.json, skipping commit"
-          else
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add "$MANIFEST_PATH"
-            git commit -m "chore: update manifest.json [skip ci]"
-            git push
-            echo "::notice::Manifest committed and pushed successfully"
-          fi
+      #     if git diff --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
+      #        git diff --cached --quiet -- "$MANIFEST_PATH" 2>/dev/null && \
+      #        [ -z "$(git ls-files --others --exclude-standard -- "$MANIFEST_PATH")" ]; then
+      #       echo "::notice::No changes in manifest.json, skipping commit"
+      #     else
+      #       git config user.name "github-actions[bot]"
+      #       git config user.email "github-actions[bot]@users.noreply.github.com"
+      #       git add "$MANIFEST_PATH"
+      #       git commit -m "chore: update manifest.json [skip ci]"
+      #       git push
+      #       echo "::notice::Manifest committed and pushed successfully"
+      #     fi
