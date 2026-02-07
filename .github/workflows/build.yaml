@@ -104,7 +104,7 @@ jobs:
       #   run: dotnet restore ${{ env.CONSOLE_PROJECT }}
 
       - name: 🛠️ Build console application
-        run: dotnet publish ${{ env.CONSOLE_PROJECT }} -r linux-musl-x64 --self-contained false --configuration Release --output ${{ github.workspace }}/artifacts
+        run: dotnet publish ${{ env.CONSOLE_PROJECT }} -r linux-x64 --self-contained false --configuration Release --output ${{ github.workspace }}/artifacts
 
       - name: 🔍 Debug - Verify project structure
         run: |
