@@ -44,7 +44,7 @@ try
     Serilog.Debugging.SelfLog.Enable(msg => Console.Error.WriteLine(msg));
 
     var configuration = new ConfigurationBuilder()
-        .SetBasePath(repoRoot)
+        .SetBasePath(AppContext.BaseDirectory)
         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
         .AddEnvironmentVariables()
         .Build();
