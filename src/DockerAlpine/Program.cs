@@ -179,7 +179,7 @@ try
     var latestVersion = activeReleases.DetermineLatestVersion();
     var current = 1;
 
-    foreach (var image in images.Take(limit))
+    foreach (var image in images.Where(w => w.Status != "pushed").Take(limit))
     {
         logger.Information("");
         logger.Information(" Processing Image {Version} (status={Status}) - {current}/{limit}", image.Version, image.Status, current, limit);
