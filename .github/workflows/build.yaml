@@ -123,7 +123,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: cd ${{ github.workspace }}/artifacts && dotnet DockerAlpine.dll
+        run: cd ${{ github.workspace }}/artifacts && ./DockerAlpine
 
       - name: 🔍 Debug - Check exit and logs
         if: always()
