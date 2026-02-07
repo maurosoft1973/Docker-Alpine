@@ -71,11 +71,11 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      # - name: 🐋 set up docker buildx
-      #   uses: docker/setup-buildx-action@v3
+      - name: 🐋 set up docker buildx
+        uses: docker/setup-buildx-action@v3
 
-      # - name: 🐋 set up qemu (multi-architecture)
-      #   uses: docker/setup-qemu-action@v3
+      - name: 🐋 set up qemu (multi-architecture)
+        uses: docker/setup-qemu-action@v3
 
       # ==================== DOCKER LOGIN ====================
 
@@ -99,10 +99,6 @@ jobs:
       #     password: ${{ secrets.GHCR_TOKEN }}
 
       # ==================== BUILD & RUN ====================
-
-      # - name: 📦 Restore dependencies
-      #   run: dotnet restore ${{ env.CONSOLE_PROJECT }}
-
       - name: 🛠️ Build console application
         run: dotnet publish "${{ env.CONSOLE_PROJECT }}" --configuration Release --output "${{ github.workspace }}/artifacts"
 
