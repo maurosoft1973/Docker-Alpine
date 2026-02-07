@@ -42,13 +42,13 @@ var repoRoot = !string.IsNullOrWhiteSpace(workspace)
     ? workspace
     : Directory.GetCurrentDirectory();
 
-Environment.Exit(0);
-
 try
 {
     DotEnv.Load(Path.Combine(repoRoot, ".env"));
 
     Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
+
+    Environment.Exit(0);
 
     var configuration = new ConfigurationBuilder()
         .SetBasePath(repoRoot)
