@@ -48,8 +48,6 @@ try
 
     Environment.SetEnvironmentVariable("APP_CURRENT_PATH", repoRoot);
 
-    Environment.Exit(0);
-
     var configuration = new ConfigurationBuilder()
         .SetBasePath(repoRoot)
         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -60,6 +58,10 @@ try
         .ReadFrom.Configuration(configuration)
         .Enrich.FromLogContext()
         .CreateLogger();
+
+    Console.WriteLine("End Alpine Automatic Build...");
+
+    Environment.Exit(0);
 
     logger.Information("═══════════════════════════════════════════════════");
     logger.Information("Alpine Automatic Build - Starting");
