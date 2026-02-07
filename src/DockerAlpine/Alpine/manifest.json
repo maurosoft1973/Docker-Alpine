@@ -342,8 +342,8 @@
         "x86_64": {
           "Name": "alpine-minirootfs-3.20.4-x86_64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.4-x86_64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.4/x86_64/alpine-minirootfs-3.20.4-x86_64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.5977298Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.4/x86_64/alpine-minirootfs-3.20.4-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.5029972Z",
           "Size": 3484702,
           "Sha256": null,
           "Verified": null
@@ -351,8 +351,8 @@
         "aarch64": {
           "Name": "alpine-minirootfs-3.20.4-aarch64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.4-aarch64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.4/aarch64/alpine-minirootfs-3.20.4-aarch64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.7729395Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.4/aarch64/alpine-minirootfs-3.20.4-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.5057155Z",
           "Size": 3941911,
           "Sha256": null,
           "Verified": null
@@ -375,21 +375,21 @@
         "BranchDate": "2024-05-22"
       },
       "Artifacts": {
-        "x86_64": {
-          "Name": "alpine-minirootfs-3.20.3-x86_64.tar.gz",
-          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.3/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.2126549Z",
-          "Size": 3490290,
-          "Sha256": null,
-          "Verified": null
-        },
         "aarch64": {
           "Name": "alpine-minirootfs-3.20.3-aarch64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.3-aarch64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.3/aarch64/alpine-minirootfs-3.20.3-aarch64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.5803534Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.3/aarch64/alpine-minirootfs-3.20.3-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.4619976Z",
           "Size": 3947906,
+          "Sha256": null,
+          "Verified": null
+        },
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.3/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.4724678Z",
+          "Size": 3490290,
           "Sha256": null,
           "Verified": null
         }
@@ -411,21 +411,21 @@
         "BranchDate": "2024-05-22"
       },
       "Artifacts": {
-        "aarch64": {
-          "Name": "alpine-minirootfs-3.20.2-aarch64.tar.gz",
-          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.2/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.0355711Z",
-          "Size": 3947409,
-          "Sha256": null,
-          "Verified": null
-        },
         "x86_64": {
           "Name": "alpine-minirootfs-3.20.2-x86_64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.2/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.1907019Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.2/x86_64/alpine-minirootfs-3.20.2-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.4247294Z",
           "Size": 3489862,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.2/aarch64/alpine-minirootfs-3.20.2-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.4352592Z",
+          "Size": 3947409,
           "Sha256": null,
           "Verified": null
         }
@@ -450,8 +450,8 @@
         "x86_64": {
           "Name": "alpine-minirootfs-3.20.1-x86_64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.1/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:10.9603369Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.1/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.380414Z",
           "Size": 3487522,
           "Sha256": null,
           "Verified": null
@@ -459,8 +459,8 @@
         "aarch64": {
           "Name": "alpine-minirootfs-3.20.1-aarch64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.1-aarch64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.1/aarch64/alpine-minirootfs-3.20.1-aarch64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:11.0139614Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.1/aarch64/alpine-minirootfs-3.20.1-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.3993757Z",
           "Size": 3948433,
           "Sha256": null,
           "Verified": null
@@ -486,8 +486,8 @@
         "x86_64": {
           "Name": "alpine-minirootfs-3.20.0-x86_64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.0-x86_64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.0/x86_64/alpine-minirootfs-3.20.0-x86_64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:10.7841518Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.0/x86_64/alpine-minirootfs-3.20.0-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.3131776Z",
           "Size": 3487168,
           "Sha256": null,
           "Verified": null
@@ -495,8 +495,8 @@
         "aarch64": {
           "Name": "alpine-minirootfs-3.20.0-aarch64.tar.gz",
           "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/aarch64/alpine-minirootfs-3.20.0-aarch64.tar.gz",
-          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/Alpine/Cache/alpine-v3.20.0/aarch64/alpine-minirootfs-3.20.0-aarch64.tar.gz",
-          "DownloadedAtUtc": "2026-02-07T17:32:10.7831445Z",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.20.0/aarch64/alpine-minirootfs-3.20.0-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-02-07T17:51:20.3133088Z",
           "Size": 3947706,
           "Sha256": null,
           "Verified": null
@@ -509,7 +509,7 @@
       "ErrorMessage": null
     }
   },
-  "LastModifiedUtc": "2026-02-07T17:32:11.7735566Z",
+  "LastModifiedUtc": "2026-02-07T17:51:20.506318Z",
   "SchemaVersion": 1,
   "Metadata": {}
 }
