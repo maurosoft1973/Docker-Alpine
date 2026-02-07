@@ -59,10 +59,6 @@ try
         .Enrich.FromLogContext()
         .CreateLogger();
 
-    Console.WriteLine("End Alpine Automatic Build...");
-
-    Environment.Exit(0);
-
     logger.Information("═══════════════════════════════════════════════════");
     logger.Information("Alpine Automatic Build - Starting");
     logger.Information("Repository root: {RepoRoot}", repoRoot);
@@ -86,6 +82,10 @@ try
     Directory.CreateDirectory(settings.AlpineRoot);
     Directory.CreateDirectory(settings.CacheRoot);
     Directory.CreateDirectory(Path.GetDirectoryName(settings.ManifestPath)!);
+
+    Console.WriteLine("End Alpine Automatic Build...");
+
+    Environment.Exit(0);
 
     var builder = Host.CreateApplicationBuilder(args);
     builder.Configuration.AddConfiguration(configuration);
