@@ -120,6 +120,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+            set -euxo pipefail
             cd "${{ github.workspace }}/artifacts"
             dotnet DockerAlpine.dll
 
