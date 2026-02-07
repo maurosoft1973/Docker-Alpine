@@ -133,7 +133,7 @@ try
 
     logger.Information("");
     logger.Information("Loading manifest...");
-    var manifest = await manifestStore.LoadAsync(settings.ManifestPath, settings.Architectures);
+    var manifest = await manifestStore.LoadAsync(manifestGitPath, settings.Architectures);
     logger.Information("");
 
     logger.Information("Scraping Alpine releases...");
