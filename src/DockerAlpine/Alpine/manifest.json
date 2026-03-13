@@ -168,11 +168,30 @@
         "Branch": "v3.21",
         "BranchDate": "2024-12-05"
       },
-      "Artifacts": {},
-      "Status": "new",
+      "Artifacts": {
+        "x86_64": {
+          "Name": "alpine-minirootfs-3.21.4-x86_64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/x86_64/alpine-minirootfs-3.21.4-x86_64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.21.4/x86_64/alpine-minirootfs-3.21.4-x86_64.tar.gz",
+          "DownloadedAtUtc": "2026-03-13T04:45:27.3062579Z",
+          "Size": 3502894,
+          "Sha256": null,
+          "Verified": null
+        },
+        "aarch64": {
+          "Name": "alpine-minirootfs-3.21.4-aarch64.tar.gz",
+          "Url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/releases/aarch64/alpine-minirootfs-3.21.4-aarch64.tar.gz",
+          "LocalPath": "/home/runner/work/Docker-Alpine/Docker-Alpine/artifacts/Alpine/Cache/alpine-v3.21.4/aarch64/alpine-minirootfs-3.21.4-aarch64.tar.gz",
+          "DownloadedAtUtc": "2026-03-13T04:45:27.4622009Z",
+          "Size": 3844673,
+          "Sha256": null,
+          "Verified": null
+        }
+      },
+      "Status": "pushed",
       "LastUpdatedUtc": null,
-      "BuiltAtUtc": null,
-      "PushedAtUtc": null,
+      "BuiltAtUtc": "2026-03-13T04:45:58.8545165Z",
+      "PushedAtUtc": "2026-03-13T04:46:23.7760505Z",
       "ErrorMessage": null
     },
     "3.21.3": {
@@ -680,7 +699,7 @@
       "ErrorMessage": null
     }
   },
-  "LastModifiedUtc": "2026-03-12T04:49:06.5564996Z",
+  "LastModifiedUtc": "2026-03-13T04:46:23.7761151Z",
   "SchemaVersion": 1,
   "Metadata": {}
 }
